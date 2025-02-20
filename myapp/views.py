@@ -22,6 +22,7 @@ category_6 = ["바다의 기억", "파도가 전하는 제주 바다의 맛", ""
 category = [category_1, category_2, category_3, category_4, category_5, category_6]
 
 def splash_function(request):
+    
     return HttpResponse('splash')
 
 def intro_function(request):

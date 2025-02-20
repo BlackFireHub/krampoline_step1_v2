@@ -6,10 +6,13 @@ FROM krmp-d2hub-idock.9rum.cc/goorm/python:3.6-slim
 WORKDIR /app
 
 # 필요한 Python 스크립트를 이미지에 추가
-COPY manage.py /app/
+COPY requirements.txt /app/
+COPY . /app/
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 # 서버가 실행될 때 사용되는 포트
 EXPOSE 3000
 
 # 컨테이너를 시작할 때 Python 스크립트를 실행
-CMD ["python", "/app/manage.py runserver"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
